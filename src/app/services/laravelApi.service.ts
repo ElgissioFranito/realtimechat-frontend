@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class LaravelApiService {
   private readonly urlBase = environment.urlRoot;
   private readonly apiUrl = this.urlBase + 'api/';
   public headers = new HttpHeaders;
@@ -18,7 +18,7 @@ export class ApiService {
   }
 
   sendMessage (data:any) : Observable<any> {
-    return this.http.post(this.apiUrl + 'sendMessage', data);
+    return this.http.post(this.apiUrl + 'sendMessage', data, {headers: this.headers});
   }
 
 }

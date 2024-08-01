@@ -1,3 +1,8 @@
 <div>
-  <app-login></app-login>
+  @if (sharedService.isLogin) {
+    <app-home></app-home>
+  }
+  @else {
+    <app-login></app-login>
+  }
 </div>

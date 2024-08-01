@@ -1,133 +1,124 @@
+<!-- Chat Button -->
+<div class="chat-button-container">
+    <button id="open-chat" class="chat-button">
+        <svg class="chat-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+</div>
 
-        <!-- Chat Button -->
-        <div class="fixed flex justify-end items-end chat-button">
-            <button id="open-chat" class="bg-green-500 text-white rounded-full p-4 shadow-lg focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+<!-- Chat Window -->
+<div id="chat-window" class="chat-window">
+    <div class="chat-window-header">
+        <div class="chat-window-header-left">
+            <div class="chat-window-header-icon">
+                <svg class="chat-window-header-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
                     </path>
                 </svg>
-            </button>
+            </div>
+            <div class="chat-window-header-title">
+                <h2>Agent #007</h2>
+            </div>
         </div>
-
-        <!-- Chat Window -->
-        <div id="chat-window" class="fixed hidden chat-window bg-white rounded-lg shadow-lg">
-            <div class="p-4 border-b border-gray-200 flex items-center justify-between">
-                <div class="flex items-center">
-                    <div class="bg-green-500 rounded-full p-2">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="ml-3">
-                        <h2 class="text-lg font-semibold">Agent #007</h2>
-                    </div>
-                </div>
-                <button id="close-chat" class="focus:outline-none">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        <button id="close-chat" class="chat-window-header-close">
+            <svg class="chat-window-header-close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="chat-window-body" id="chat-box">
+        <!-- Chat messages -->
+        <div class="chat-message">
+            <div class="chat-message-incoming">
+                <div class="chat-message-incoming-icon">
+                    <svg class="chat-message-incoming-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
                         </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
+                        </path>
+                    </svg>
+                </div>
+                <div class="chat-message-incoming-text">
+                    <p>How can we help you?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-message chat-message-outgoing">
+            <div>
+                <p class="chat-message-outgoing-text">Hello there! I need help.</p>
+            </div>
+        </div>
+        <div class="chat-message-date">
+            Tuesday, 26 January
+        </div>
+        <div class="chat-message">
+            <div class="chat-message-incoming">
+                <div class="chat-message-incoming-icon">
+                    <svg class="chat-message-incoming-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
+                        </path>
+                    </svg>
+                </div>
+                <div class="chat-message-incoming-text">
+                    <p>Okay! We are here to help.</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-message chat-message-outgoing">
+            <div>
+                <p class="chat-message-outgoing-text">I need help to setup my profile, ASAP!</p>
+            </div>
+        </div>
+        <div class="chat-message">
+            <div class="chat-message-incoming">
+                <div class="chat-message-incoming-icon">
+                    <svg class="chat-message-incoming-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
+                        </path>
+                    </svg>
+                </div>
+                <div class="chat-message-incoming-text">
+                    <p>Sure thing. I will get on it.</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-message chat-message-outgoing">
+            <div>
+                <p class="chat-message-outgoing-text">ok! am waiting</p>
+            </div>
+        </div>
+    </div>
+    <div class="chat-window-footer">
+        <form id="chat-form">
+            <div class="chat-form">
+                <input type="text" id="message-input" class="chat-form-input" placeholder="Enter your message...">
+                <button type="submit" class="chat-form-button">
+                    <svg class="chat-form-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                 </button>
             </div>
-            <div class="p-4 h-96 overflow-y-auto" id="chat-box">
-                <!-- Chat messages -->
-                <div class="mb-4">
-                    <div class="flex items-start">
-                        <div class="bg-green-500 text-white rounded-full p-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
-                                </path>
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <p class="bg-green-100 text-black rounded-lg px-4 py-2">How can we help you?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-4 text-right">
-                    <div>
-                        <p class="inline-block bg-blue-500 text-white rounded-lg px-4 py-2">Hello there! I need help.
-                        </p>
-                    </div>
-                </div>
-                <div class="text-center text-gray-400 text-sm my-2">
-                    Tuesday, 26 January
-                </div>
-                <div class="mb-4">
-                    <div class="flex items-start">
-                        <div class="bg-green-500 text-white rounded-full p-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
-                                </path>
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <p class="bg-green-100 text-black rounded-lg px-4 py-2">Okay! We are here to help.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-4 text-right">
-                    <div>
-                        <p class="inline-block bg-blue-500 text-white rounded-lg px-4 py-2">I need help to setup my
-                            profile, ASAP!</p>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <div class="flex items-start">
-                        <div class="bg-green-500 text-white rounded-full p-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
-                                </path>
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <p class="bg-green-100 text-black rounded-lg px-4 py-2">Sure thing. I will get on it.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-4 text-right">
-                    <div>
-                        <p class="inline-block bg-blue-500 text-white rounded-lg px-4 py-2">ok! am waiting</p>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 border-t border-gray-200">
-                <form id="chat-form">
-                    <div class="flex items-center">
-                        <input type="text" id="message-input"
-                            class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
-                            placeholder="Enter your message...">
-                        <button type="submit" class="ml-2 bg-green-500 text-white px-4 py-2 rounded-lg">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </form>
+    </div>
+</div>
