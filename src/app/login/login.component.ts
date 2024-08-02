@@ -33,9 +33,9 @@ export class LoginComponent {
             Authorization: `Bearer ${token}`,
           })
 
-          this.echoService.listen('chat', 'MessageSent', (data: any) => {
-            console.log(data.message);
-          });
+          // this.echoService.listen('chat', 'MessageSent', (data: any) => {
+          //   console.log(data.message);
+          // });
 
           this.sharedService.isLogin = true;
 

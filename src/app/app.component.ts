@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   messages: any[] = [];
 
   constructor(public sharedService: SharedService, 
-    private echoService: EchoService, 
+    // private echoService: EchoService, 
     private apiService: LaravelApiService, 
     private router: Router) { }
 
@@ -36,10 +36,10 @@ export class AppComponent implements OnInit {
         Authorization: `Bearer ${token}`,
       })
 
-      this.echoService.listen('chat', 'MessageSent', (data: any) => {
-        console.log(data.message);
-        this.messages.push(data.message);
-      });
+      // this.echoService.listen('chat', 'MessageSent', (data: any) => {
+      //   console.log(data.message);
+      //   this.messages.push(data.message);
+      // });
 
       this.sharedService.isLogin = true;
       

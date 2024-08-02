@@ -1,31 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { LaravelApiService } from '../services/laravelApi.service';
-import { FormControl, FormGroup } from '@angular/forms';
 import { SharedService } from '../services/shared.service';
+import { ChatDialogComponent } from '../chat-dialog/chat-dialog.component';
+import { NgClass } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [ChatDialogComponent, NgClass],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
-})
-export class HomeComponent {
+  styleUrl: './home.component.scss',
   
-  sendMessageForm : FormGroup = new FormGroup({
-    user_id : new FormControl(1),
-    message : new FormControl(''),
-  });
+})
+export class HomeComponent{
 
-  constructor (private apiService : LaravelApiService, private sharedService : SharedService) {}
+  isVisibleChat = signal(true);
 
-  onLogin(){
-    console.log(this.sendMessageForm.value);
-    
-    this.apiService.login(this.sendMessageForm.value).subscribe({
-      next : (data:any) => {
-        console.log(data);
-      }
-    })
+  toggleChat() {
+    this.isVisibleChat.set(!this.isVisibleChat());
+  }
+
+  onCloseChat(e: boolean): void {
+    if (e === true) {
+      this.toggleChat()
+    }
   }
 }

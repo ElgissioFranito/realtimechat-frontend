@@ -1,0 +1,77 @@
+<!-- Chat Window -->
+<div id="chat-window" class="chat-window">
+    <div class="chat-window-header">
+        <div class="chat-window-header-left">
+            <div class="chat-window-header-icon">
+                <svg class="chat-window-header-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
+                    </path>
+                </svg>
+            </div>
+            <div class="chat-window-header-title">
+                <h2>Agent #007</h2>
+            </div>
+        </div>
+        <button id="close-chat" class="chat-window-header-close" (click)="onCloseChat()">
+            <svg class="chat-window-header-close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="chat-window-body" id="chat-box">
+        <!-- Chat messages -->
+        <div class="chat-message-date">
+            Tuesday, 26 January
+        </div>
+        @for (message of messages(); track $index) {
+            @if (message.user_id == 2) {
+                <div class="chat-message">
+                    <div class="chat-message-incoming">
+                        <div class="chat-message-incoming-icon">
+                            <svg class="chat-message-incoming-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7.05 7.05a7.002 7.002 0 0112.9 0M7.05 7.05A7.002 7.002 0 007.05 16.95M16.95 16.95A7.002 7.002 0 007.05 16.95M16.95 16.95a7.002 7.002 0 010-9.9">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="chat-message-incoming-text">
+                            <p>{{message?.message_content}} </p>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            @if (message.user_id == 1) {
+                
+                <div class="chat-message chat-message-outgoing">
+                    <div>
+                        <p class="chat-message-outgoing-text">{{message?.message_content}}</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="chat-window-footer">
+        <div id="chat-form">
+            <div class="chat-form">
+                <input type="text" id="message-input" class="chat-form-input" placeholder="Enter your message...">
+                <button class="chat-form-button" (click)="onSendMessage()">
+                    <svg class="chat-form-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
